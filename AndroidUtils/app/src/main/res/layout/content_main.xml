@@ -13,8 +13,10 @@
     tools:showIn="@layout/activity_main"
     tools:context=".MainActivity">
 
-    <TextView
-        android:text="Hello World!"
+    <Button
+        android:id="@+id/cancel_toast_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel_toast"
+        />
 </RelativeLayout>

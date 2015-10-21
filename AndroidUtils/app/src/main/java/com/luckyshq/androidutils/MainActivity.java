@@ -8,24 +8,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+
+import com.luckyshq.libtoast.TimeToast;
 
 public class MainActivity extends AppCompatActivity {
+
+	private FloatingActionButton mFab;
+	private Button mCancelToastButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
+		initView();
+		initListener();
 
-		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-		fab.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
-			}
-		});
 	}
 
 	@Override
@@ -48,5 +45,35 @@ public class MainActivity extends AppCompatActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void initView(){
+		setContentView(R.layout.activity_main);
+
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+
+		mFab = (FloatingActionButton) findViewById(R.id.fab);
+
+		TimeToast.makeText(this, "Toast Until canceled");
+		TimeToast.show();
+
+		mCancelToastButton = (Button) findViewById(R.id.cancel_toast_button);
+	}
+
+	public void initListener(){
+		mFab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+						.setAction("Action", null).show();
+			}
+		});
+		mCancelToastButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TimeToast.cancelToast();
+			}
+		});
 	}
 }
