@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 /**
- * Created by zhangshengqi on 14-12-4.
+ * Created by luckyshq on 14-12-4.
  */
 public class InputUtils {
     private final static String TAG = "InputUtils";
