@@ -1,7 +1,7 @@
 # AndroidUtils
->* libtoast (Toast相关库)
+>* LibCommon (通用库)
 
-## libtoast 
+## LibCommon
 
 * TimeToast 可自定时长的Toast。
 
@@ -12,4 +12,11 @@ TimeToast.show();
 //在调用show之后，只要没调用cancelToast，Toast就不会消失。
 //可以使用Handler的postDelayed来调用cancelToast，从而达到使用任意时长Toast的效果。
 TimeToast.cancelToast();
+```
+
+* InputUtils 输入相关工具类。
+
+```java
+//对应的View弹出软键盘。
+InputUtils.toggleSoftInput(view);
 ```
