@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.luckyshq.libtoast.TimeToast;
+import com.luckyshq.toast.TimeToast;
 
 public class MainActivity extends AppCompatActivity {
 
