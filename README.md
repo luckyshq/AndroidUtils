@@ -20,3 +20,13 @@ TimeToast.cancelToast();
 //对应的View弹出软键盘。
 InputUtils.toggleSoftInput(view);
 ```
+
+* LogSelfUtils 自用Log工具类。
+
+```java
+LogSelfUtils.v("verbose");
+LogSelfUtils.d("debug");
+LogSelfUtils.i("info");
+LogSelfUtils.w("warn");
+LogSelfUtils.e("error");
+```
