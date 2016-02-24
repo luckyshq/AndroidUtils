@@ -30,3 +30,14 @@ LogSelfUtils.i("info");
 LogSelfUtils.w("warn");
 LogSelfUtils.e("error");
 ```
+
+* ReflectSystemProperties 通过反射实现的SystemProperty操作类。
+
+```java
+String get(String key);
+String get(String key, String def);
+int getInt(String key, int def);
+Long getLong(String key, long def);
+boolean getBoolean(String key, boolean def);
+void set(String key, String val);
+```
