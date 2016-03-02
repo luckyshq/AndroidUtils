@@ -41,3 +41,9 @@ Long getLong(String key, long def);
 boolean getBoolean(String key, boolean def);
 void set(String key, String val);
 ```
+
+* RoundDrawable 圆角矩形Drawable。
+
+```java
+new RoundDrawable(Bitmap bitmap);
+```
