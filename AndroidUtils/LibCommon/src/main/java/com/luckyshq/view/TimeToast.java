@@ -1,4 +1,4 @@
-package com.luckyshq.toast;
+package com.luckyshq.view;
 
 import android.content.Context;
 import android.os.Handler;

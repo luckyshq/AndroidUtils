@@ -1,6 +1,5 @@
 package com.luckyshq.apk;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 
@@ -9,9 +8,14 @@ import android.content.Context;
  */
 public class PackageUtils {
 
-	public static String getTopActivityName(Context context){
-		ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+	public static String getTopActivityName(Context pContext){
+		ActivityManager activityManager = (ActivityManager) pContext.getSystemService(Context.ACTIVITY_SERVICE);
 		return activityManager.getRunningTasks(1).get(0).topActivity.getClassName();
+	}
+
+	public static String getTopPackageName(Context pContext) {
+		ActivityManager activityManager = (ActivityManager) pContext.getSystemService(Context.ACTIVITY_SERVICE);
+		return activityManager.getRunningTasks(1).get(0).topActivity.getPackageName();
 	}
 
 }

@@ -1,79 +1,69 @@
 package com.luckyshq.androidutils;
 
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
 
-import com.luckyshq.toast.TimeToast;
+import com.luckyshq.androidutils.apk.PackageInfoFragment;
+import com.luckyshq.androidutils.os.DeviceInfoFragment;
+import com.luckyshq.log.LogSelfUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
-	private FloatingActionButton mFab;
-	private Button mCancelToastButton;
+	private MainFragment mMainFragment;
+	private DeviceInfoFragment mDeviceInfoFragment;
+	private PackageInfoFragment mPackageInfoFragment;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		initView();
-		initListener();
-
+		initViews();
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-
-		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
-			return true;
-		}
-
-		return super.onOptionsItemSelected(item);
-	}
-
-	public void initView(){
+	public void initViews() {
 		setContentView(R.layout.activity_main);
+		initFragments();
 
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-
-		mFab = (FloatingActionButton) findViewById(R.id.fab);
-
-		TimeToast.makeText(this, "Toast Until canceled");
-		TimeToast.show();
-
-		mCancelToastButton = (Button) findViewById(R.id.cancel_toast_button);
+		FragmentManager fragmentManager = getFragmentManager();
+		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+		fragmentTransaction.replace(R.id.fragment_container, mMainFragment);
+		fragmentTransaction.commit();
 	}
 
-	public void initListener(){
-		mFab.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
-			}
-		});
-		mCancelToastButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				TimeToast.cancelToast();
-			}
-		});
+	private void initFragments() {
+		mMainFragment = MainFragment.newInstance();
+		mDeviceInfoFragment = DeviceInfoFragment.newInstance();
+		mPackageInfoFragment = PackageInfoFragment.newInstance();
+	}
+
+
+	@Override
+	public void onClick(View pView) {
+		LogSelfUtils.i("onClick btn : " + pView.toString());
+		switch (pView.getId()) {
+			case R.id.device_info_button:
+				deviceInfoBtnClicked();
+				break;
+			case R.id.apk_info_button:
+				packageInfoBtnClicked();
+				break;
+			default:
+				break;
+		}
+	}
+
+	private void deviceInfoBtnClicked() {
+		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+		fragmentTransaction.replace(R.id.fragment_container, mDeviceInfoFragment);
+		fragmentTransaction.commit();
+	}
+
+	private void packageInfoBtnClicked() {
+		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+		fragmentTransaction.replace(R.id.fragment_container, mPackageInfoFragment);
+		fragmentTransaction.commit();
 	}
 }

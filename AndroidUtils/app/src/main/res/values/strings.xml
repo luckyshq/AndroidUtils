@@ -3,6 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="button_cancel_toast">Cancel Toast</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_device_info">Device Info</string>
+    <string name="textview_cpu_name">CPU name: %1$s</string>
+    <string name="button_apk_info">Apk Info</string>
+    <string name="button_package_start_service">Start service</string>
+    <string name="button_package_stop_service">Stop Service</string>
 </resources>
