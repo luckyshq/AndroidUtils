@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 /**
  * Created by zhangshengqi on 16/5/10.
@@ -46,7 +45,7 @@ public class MainFragment extends Fragment{
 	}
 
 	private void initViews(View pContentView) {
-		pContentView.findViewById(R.id.device_info_button).setOnClickListener(mCallBackClickListener);
+		pContentView.findViewById(R.id.os_info_button).setOnClickListener(mCallBackClickListener);
 		pContentView.findViewById(R.id.apk_info_button).setOnClickListener(mCallBackClickListener);
 	}
 }

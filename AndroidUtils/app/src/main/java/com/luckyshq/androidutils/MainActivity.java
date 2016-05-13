@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.luckyshq.androidutils.apk.PackageInfoFragment;
-import com.luckyshq.androidutils.os.DeviceInfoFragment;
+import com.luckyshq.androidutils.os.OSInfoFragment;
 import com.luckyshq.log.LogSelfUtils;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
 	private MainFragment mMainFragment;
-	private DeviceInfoFragment mDeviceInfoFragment;
+	private OSInfoFragment mDeviceInfoFragment;
 	private PackageInfoFragment mPackageInfoFragment;
 
 
@@ -35,7 +35,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 	private void initFragments() {
 		mMainFragment = MainFragment.newInstance();
-		mDeviceInfoFragment = DeviceInfoFragment.newInstance();
+		mDeviceInfoFragment = OSInfoFragment.newInstance();
 		mPackageInfoFragment = PackageInfoFragment.newInstance();
 	}
 
@@ -44,7 +44,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	public void onClick(View pView) {
 		LogSelfUtils.i("onClick btn : " + pView.toString());
 		switch (pView.getId()) {
-			case R.id.device_info_button:
+			case R.id.os_info_button:
 				deviceInfoBtnClicked();
 				break;
 			case R.id.apk_info_button:
