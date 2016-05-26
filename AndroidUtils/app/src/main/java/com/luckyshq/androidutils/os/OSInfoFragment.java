@@ -3,7 +3,6 @@ package com.luckyshq.androidutils.os;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Telephony.Threads;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.luckyshq.androidutils.R;
-import com.luckyshq.androidutils.apk.PackageInfoService;
 import com.luckyshq.log.LogSelfUtils;
 import com.luckyshq.os.DeviceUtils;
 
@@ -38,6 +36,12 @@ public class OSInfoFragment extends Fragment{
 						pE.printStackTrace();
 					}
 					break;
+				case R.id.start_get_process_name_button:
+					getActivity().startService(new Intent(getActivity(), OSInfoService.class));
+					break;
+				case R.id.stop_get_process_name_button:
+					getActivity().stopService(new Intent(getActivity(), OSInfoService.class));
+					break;
 				default:
 					break;
 			}
@@ -56,5 +60,7 @@ public class OSInfoFragment extends Fragment{
 	private void initViews(View pContentView){
 		((TextView) pContentView.findViewById(R.id.cpu_name_textview)).setText(String.format(getString(R.string.textview_cpu_name), DeviceUtils.getCPUName()));
 		pContentView.findViewById(R.id.cause_anr_button).setOnClickListener(mOnClickListener);
+		pContentView.findViewById(R.id.start_get_process_name_button).setOnClickListener(mOnClickListener);
+		pContentView.findViewById(R.id.stop_get_process_name_button).setOnClickListener(mOnClickListener);
 	}
 }

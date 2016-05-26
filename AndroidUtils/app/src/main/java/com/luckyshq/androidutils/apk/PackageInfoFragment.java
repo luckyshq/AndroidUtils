@@ -28,6 +28,9 @@ public class PackageInfoFragment extends Fragment{
 				case R.id.package_start_service_button:
 					getActivity().startService(new Intent(getActivity(), PackageInfoService.class));
 					break;
+				case R.id.package_stop_service_button:
+					getActivity().stopService(new Intent(getActivity(), PackageInfoService.class));
+					break;
 				default:
 					break;
 			}
@@ -45,5 +48,6 @@ public class PackageInfoFragment extends Fragment{
 
 	private void initListeners(View pContentView){
 		pContentView.findViewById(R.id.package_start_service_button).setOnClickListener(mOnClickListener);
+		pContentView.findViewById(R.id.package_stop_service_button).setOnClickListener(mOnClickListener);
 	}
 }

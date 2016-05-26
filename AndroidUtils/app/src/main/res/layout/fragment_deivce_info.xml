@@ -16,4 +16,23 @@
         android:layout_height="wrap_content"
         android:text="@string/button_start_anr"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/start_get_process_name_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_start_get_process_name"/>
+
+        <Button
+            android:id="@+id/stop_get_process_name_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_stop_get_process_name"/>
+    </LinearLayout>
+
+
 </LinearLayout>

@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <service android:name=".apk.PackageInfoService"/>
+        <service android:name=".os.OSInfoService"/>
     </application>
 
 </manifest>

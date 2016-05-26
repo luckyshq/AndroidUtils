@@ -3,9 +3,20 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <Button
-        android:id="@+id/package_start_service_button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_package_start_service"/>
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/package_start_service_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_package_start_service"/>
+        <Button
+            android:id="@+id/package_stop_service_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_package_stop_service"/>
+    </LinearLayout>
+
 </LinearLayout>

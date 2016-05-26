@@ -10,4 +10,6 @@
     <string name="button_package_start_service">Start service</string>
     <string name="button_package_stop_service">Stop Service</string>
     <string name="button_start_anr">Start ANR</string>
+    <string name="button_start_get_process_name">Start showing process name</string>
+    <string name="button_stop_get_process_name">Stop showing process name</string>
 </resources>
